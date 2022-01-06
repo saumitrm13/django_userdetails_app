@@ -1,0 +1,1 @@
+web gunicorn userdetails.wsgi:application --log-file -

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Details</title>
+    <h1>Hello {{details.username}}!</h1>
+
+</head>
+<body>
+<h3>Here is a display of your information</h3>
+<table  border="1" cellspacing="15" cellpadding="50">
+  <tr>
+    <th style="color:blue">Username</th>
+    <th style="color:blue">Email id</th>
+    <th style="color:blue">Address</th>
+  </tr>
+  <tr>
+    <td>{{details.username}}</td>
+    <td>{{details.email}}</td>
+    <td>{{details.address}}</td>
+  </tr>
+
+</table>
+<div class="'wrapper" style="text-align:center;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        margin-top:20px">
+    <a href="#modalbox" style="display:inline-block;
+    text-decoration:none;
+    background-color:white;
+    padding:15px;
+    border-radius:3px">Edit My Information</a>
+</div>
+<div id="modalbox" class="modal">
+    <div class="modalcontent">
+        <h1>Enter your new information.</h1>
+        <form action="/details" method="POST">
+            {% csrf_token %}
+             <div class="form-group" style="margin-bottom:10px">
+                  <label for="">Username</label>
+                  <input type="text" style="width:200px;margin:2px" name="username" id="" class="form-control" placeholder="" aria-describedby="helpId">
+             </div>
+             <div class="form-group" style="margin-top:10px;margin-bottom:10px">
+                  <label for="">Address</label>
+                  <input type="text" style="width:200px;margin-left:20px" name="address" id="" class="form-control" placeholder="" aria-describedby="helpId">
+             </div>
+             <input name="" id="" style="margin-top:10px;
+             margin-bottom:10px;
+             color:blue;height:30px" class="btn btn-sm btn-info" type="submit" value="Submit">
+        </form>
+        <a href="#" class="modalclose">&times;</a>
+    </div>
+</div>
+<div style="text-align:center;margin-top:20px">
+<a href="/clear" style="display:inline-block;background-color:white;
+padding:15px;border-radius:3px;text-decoration:none">Clear My Information</a>
+</div>
+<div style="text-align:center;margin-top:20px">
+<a href="/logout" style="display:inline-block;background-color:white;
+padding:15px;border-radius:3px;text-decoration:none">Logout</a>
+</div>
+
+
+</body>
+</html>
+    <style type="text/css">
+        body{
+        background-color:lightblue;
+        }
+        h1
+        {
+        text-align:center;
+        color:maroon;
+        }
+        h3
+        {
+        text-align:center;
+        color:maroon;
+        }
+        table{
+        width: 50%;
+        margin-left:auto;
+        margin-right:auto;
+        background-color:#D6EEEE;
+        }
+
+
+        .modal{
+        position:absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        visibility:hidden;
+        opacity:0;
+        }
+        .modal:target{
+        visibility:visible;
+        opacity:1;
+        }
+        .modalcontent{
+        position:relative;
+        background:#fff;
+        width:500px;
+        max-width:90%;
+        padding:1em 2em;
+        border-radius:4px;
+        }
+        .modalclose{
+        position:absolute;
+        top:0;
+        right:15px;
+        fontsize:30px;
+        }
+    </style>

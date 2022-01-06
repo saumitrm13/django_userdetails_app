@@ -1,0 +1,45 @@
+<body style="background-color:lightblue">
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+<div class="container">
+    <div class="p-5 m-5">
+        <div class="col-lg-4 mt-4 mb-4 mx-auto border rounded pt-4">
+            <h3 class="alert alert-light border rounded mt-4 mb-4  m-5">Log In Here</h3>
+        <form action="/login" method="POST">
+            {% csrf_token %}
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+            {% endif %}
+
+            <!-- email -->
+            <div class='form-group m-5'>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="" value="{{values.email}}" class="form-control form-control-sm" placeholder="example@gmail.com">
+
+
+
+            <!--Password -->
+            <div class='form-group m-6'>
+                <label for="Password">Password</label>
+                <input type="passwords" name="password" id="" class="form-control form-control-sm" placeholder="********">
+
+            </div>
+
+            <div class="form-group">
+                <input class="btn btn-sm btn-info col-lg-4 mt-4 mb-4" type="submit" value="Log In">
+            </div>
+                <div class = 'form-group' style="margin-top:20px">
+
+                    Don't have an account? <a href="/signup" style="text-decoration:none">signup</a> here
+                </div>
+        </form>
+        </div>
+    </div>
+</div>
+</body>

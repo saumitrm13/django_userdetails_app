@@ -1,0 +1,58 @@
+<body style="background-color:lightblue">
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-4 mx-auto border rounded pt-4 mb-2 mt-2">
+            <h3 class="alert alert-light border rounded m-5">Create An Account</h3>
+        <form action="/signup" method="POST">
+            {% csrf_token %}
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+            {% endif %}
+            <!-- Username -->
+            <div class='form-group m-5'>
+                <label for="username">username</label>
+                <input type="username" name="username" id=""  value="{{values.username}}" class="form-control form-control-sm " placeholder="">
+
+            </div>
+
+
+
+            <!-- email -->
+            <div class='form-group   m-5'>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="" value="{{values.email}}" class="form-control form-control-sm" placeholder="example@gmail.com">
+
+            <!-- Address -->
+            <div class='form-group m-7 mt-4'>
+                <label for="address">Address</label>
+                <input type="address" name="address" id=""  value="{{values.address}}" class="form-control form-control-sm " placeholder="">
+
+
+            <!--Password -->
+            <div class='form-group mt-4 '>
+                <label for="Password">Password</label>
+                <input type="passwords" name="password" id="" class="form-control form-control-sm" placeholder="********">
+
+            </div>
+
+            <div class="form-group mt-4">
+                <input class="btn btn-sm btn-info " type="submit" value="Create An Account">
+            </div>
+                <div class = 'form-group' style="margin-top:20px">
+
+                    Already have an account? <a href="/login" style="text-decoration:none">login</a> here
+                </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+</body>
