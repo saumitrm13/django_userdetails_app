@@ -84,7 +84,6 @@ class Login(View):
             if flag:
 
                 request.session['user'] = user.id
-                print(user.id)
 
                 if Login.return_url:
                     return HttpResponseRedirect(Login.return_url)
@@ -111,7 +110,6 @@ class Details(View):
         details = User.get_user_info(user)
         details.username = postData.get('username')
         details.address = postData.get('address')
-        print(details)
         details.register()
         return render(request,'details.html',{'details':details})
 
